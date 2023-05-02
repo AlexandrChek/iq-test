@@ -1,30 +1,41 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <MainHeader/>
   <router-view/>
+  <BlueQuote/>
+  <WhatYouGet/>
+  <BigPromises/>
 </template>
 
+<script>
+  import MainHeader from './components/MainHeader.vue'
+  import BlueQuote from './components/BlueQuote.vue'
+  import WhatYouGet from './components/WhatYouGet.vue'
+  import BigPromises from './components/BigPromises.vue'
+
+  export default {
+    name: 'IqTest',
+    components: {
+      MainHeader,
+      BlueQuote,
+      WhatYouGet,
+      BigPromises
+    }
+  }
+</script>
+
 <style>
+body {
+  margin: 0;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'PT Serif';
+  font-style: normal;
   text-align: center;
-  color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+@media(min-width: 992px) {
+  #app {
+    background: radial-gradient(rgb(230, 70, 190), rgb(65, 15, 107));
+  }
 }
 </style>
