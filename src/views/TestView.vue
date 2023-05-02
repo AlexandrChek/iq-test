@@ -71,7 +71,7 @@ export default {
   #next-btn {
     position: absolute;
     left: calc((100% - 189px) / 2);
-    bottom: 3.32vh;
+    bottom: 3.3vh;
   }
   #next-btn:disabled {
     background: #DADADA;

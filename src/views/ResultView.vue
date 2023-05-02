@@ -51,7 +51,7 @@ export default {
     data() {
         return {
             timer: '10:00',
-            timeLeft: 600,
+            timeLeft: 10,
             btnPressed: false,
             response: []
         }
@@ -59,6 +59,17 @@ export default {
     mounted() {
         this.$store.state.iqTestHeader = false
         this.countdown()
+    },
+    watch: {
+        timeLeft(val) {
+            if(val < 0) {
+                document.querySelector('.call-btn').disabled = true
+            }
+        }
+    },
+    beforeRouteLeave(to, from, next) {
+        clearInterval(this.myTimer)
+        next()
     },
     methods: {
         countdown() {
@@ -72,7 +83,6 @@ export default {
                 this.timeLeft--
                 if(this.timeLeft < 0) {
                     clearInterval(myTimer)
-                    document.querySelector('.call-btn').disabled = true
                 }
             }, 1000)
         },
@@ -94,6 +104,8 @@ export default {
                         }
                     }
                 })
+                const wrapper = document.querySelector('.results-wrapper')
+                wrapper.style.height = 'auto'
             })
             document.querySelector('.call-btn').disabled = true
         }
@@ -181,7 +193,7 @@ export default {
     }
     .call-btn {
         position: relative;
-        z-index: 5;
+        z-index: 2;
         background: #EB1B00;
         border-radius: 5px;
         width: 275px;
@@ -195,7 +207,6 @@ export default {
     .call-btn:disabled {
         opacity: .5;
     }
-    
     .listen-to-result {
         margin: auto 0;
         width: 205px;

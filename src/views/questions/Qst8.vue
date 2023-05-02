@@ -61,4 +61,13 @@ export default {
             margin-bottom: 3.5vh;
         }
     }
+
+    @media(max-height: 690px) and (max-width: 575px) {
+        #question {
+            margin: 1.6vh 0 1.4vh 0;
+        }
+        img {
+            margin-bottom: 1.1vh;
+        }
+    }
 </style>

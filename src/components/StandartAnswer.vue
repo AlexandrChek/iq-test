@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="(ans, index) in answers" :key="index" class="ans-wrapper" :id="`ans-wrapper-${index}`" @click="selectAns(ans, index)">
-            <div class="circle" :id="`circle-${index}`"></div>
+            <div class="circle" :id="`circle-${index}`" :style="`margin: ${circleMrg};`"></div>
             <p class="answer" :id="`ans-${index}`">{{ ans }}</p>
         </div>
     </div>
@@ -14,9 +14,6 @@ export default {
     mounted() {
         const wrappers = document.querySelectorAll('.ans-wrapper')
         wrappers.forEach(e => e.style.height = this.itemHeight)
-
-        const circles = document.querySelectorAll('.circle')
-        circles.forEach(e => e.style.margin = this.circleMrg)
     },
     methods: {
         selectAns(ans, index) {
@@ -32,6 +29,7 @@ export default {
             wrapper.style.backgroundColor = '#FFC700'
             circle.style.cssText = `background: #2950C2; border: 1px solid #272727;`
             answer.style.color = '#272727'
+            allCircles.forEach(e => e.style.margin = this.circleMrg)
             this.$emit('ansSelected', ans)
         }
     }
@@ -45,7 +43,6 @@ export default {
         background: rgba(242, 243, 243, 0.15);
     }
     .circle {
-        margin: auto 39px auto 35px;
         border: 1px solid #FFFFFF;
         box-sizing: border-box;
         width: 20px;

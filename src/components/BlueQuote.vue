@@ -69,4 +69,10 @@ export default {
             width: 60%;
         }
     }
+
+    @media(max-height: 690px) and (max-width: 575px) {
+        .quote-wrapper {
+            padding: 3vh 0;
+        }
+    }
 </style>

@@ -138,10 +138,18 @@ export default {
   }
 
   @media(max-height: 690px) and (max-width: 575px) {
-    .yellow-end {
-      font-size: 25px;
-      line-height: 29px;
+    .white-start {
+      font-size: 14.4px;
+      line-height: 19.2px;
+      margin: 0 0 3vh 0;
     }
+    .yellow-end {
+      font-size: 24px;
+      line-height: 28px;
+    }
+    .details {
+    margin-top: 1.5vh;
+  }
     .home {
       padding-top: 9.7vh;
     }

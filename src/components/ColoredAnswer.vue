@@ -40,4 +40,11 @@ export default {
         width: 75px;
         box-sizing: border-box;
     }
+
+    @media(max-height: 690px) and (max-width: 575px) {
+        .ans-wrapper {
+            height: 255px;
+            width: 255px;
+        }
+    }
 </style>

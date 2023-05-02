@@ -3,7 +3,7 @@
     <QstParagraph id="question">{{ question }}</QstParagraph>
     <StandartAnswer class="answers"
         :answers="answers"
-        itemHeight="28.68%"
+        itemHeight="32.3%"
         circleMrg="auto 15px auto 35px"
         @ansSelected="transmitAns">
         {{ ans }}
@@ -52,7 +52,7 @@ export default {
         padding: 0 5%;
     }
     .answers {
-        height: 39.25vh;
+        height: 40vh;
         display: flex;
         width: 100%;
         flex-direction: column;
@@ -64,7 +64,7 @@ export default {
             margin: 47px 0 33px 0;
         }
         .answers {
-            height: 272px; 
+            height: 277px; 
         }
     }
     @media(min-width: 768px) {
@@ -72,7 +72,7 @@ export default {
             margin: 6.78vh 0 4.76vh 0;
         }
         .answers {
-            height: 39.25vh; 
+            height: 40vh; 
         }
     }
 </style>

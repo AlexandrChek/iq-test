@@ -73,4 +73,16 @@ export default {
             margin-bottom: 2.9vh;
         }
     }
+
+    @media(max-height: 690px) and (max-width: 575px) {
+        #question {
+            margin: 2.7vh 0 1.7vh 0;
+        }
+        img {
+            margin-bottom: 1.5vh;
+        }
+        .stick {
+            margin-bottom: 2.2vh;
+        }
+    }
 </style>

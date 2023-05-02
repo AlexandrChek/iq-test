@@ -4,7 +4,7 @@
     <img src="@/assets/piramid.png" alt="Piramid">
     <StandartAnswer class="answers"
         :answers="answers"
-        itemHeight="30.12%"
+        itemHeight="31.5%"
         circleMrg="auto 28px auto 35px"
         @ansSelected="transmitAns">
         {{ ans }}
@@ -49,7 +49,7 @@ export default {
         margin-bottom: 2.6vh;
     }
     .answers {
-        height: 23.95vh;
+        height: 24.2vh;
         display: flex;
         width: 100%;
         flex-direction: column;
@@ -64,7 +64,7 @@ export default {
             margin-bottom: 18px;
         }
         .answers {
-            height: 166px; 
+            height: 168px;
         }
     }
     @media(min-width: 768px) {
@@ -75,7 +75,20 @@ export default {
             margin-bottom: 2.7vh;
         }
         .answers {
-            height: 23.95vh; 
+            height: 24.2vh; 
+        }
+    }
+
+    @media(max-height: 690px) and (max-width: 575px) {
+        #question {
+            margin: 1.8vh 0 1.7vh 0;
+        }
+        img {
+            margin-bottom: 1.5vh;
+        }
+        .answers {
+            font-size: 16px;
+            line-height: 19px;
         }
     }
 </style>

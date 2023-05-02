@@ -48,4 +48,10 @@ export default {
             margin: 5vh 0 4.3vh 0;
         }
     }
+
+    @media(max-height: 690px) and (max-width: 575px) {
+        #question {
+            margin: 2.5vh 0 2vh 0;
+        }
+    }
 </style>
