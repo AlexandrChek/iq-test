@@ -40,8 +40,8 @@ export default {
 
 <style scoped>
     #question {
-        margin: 4.55vh 0 5.19vh 0;
-        padding: 0 21.3px;
+        margin: 4.55vh auto 5.19vh auto;
+        width: 280px;
     }
     .answers {
         height: 41.13vh;
@@ -53,7 +53,7 @@ export default {
 
     @media(min-width: 576px) and (orientation: landscape) {
         #question {
-            margin: 31.5px 0 36px 0;
+            margin: 31.5px auto 36px auto;
         }
         .answers {
             height: 285px; 
@@ -61,7 +61,7 @@ export default {
     }
     @media(min-width: 768px) {
         #question {
-            margin: 4.55vh 0 5.19vh 0;
+            margin: 4.55vh auto 5.19vh auto;
         }
         .answers {
             height: 41.13vh;
