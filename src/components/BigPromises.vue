@@ -150,4 +150,14 @@ export default {
             margin-bottom: 11.8vh;
         }
     }
+
+    @media(max-height: 690px) and (max-width: 575px) {
+        .transparent-btn {
+            margin-bottom: 6vh;
+        }
+        #copyright {
+            line-height: 11px;
+    }
+
+    }
 </style>

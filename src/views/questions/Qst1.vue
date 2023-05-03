@@ -52,7 +52,7 @@ export default {
 
     @media(min-width: 576px) and (orientation: landscape) {
         #question {
-            margin: 107px 0 42px 0;
+            margin: 50px 0 42px 0;
         }
         .answers {
             height: 108px; 

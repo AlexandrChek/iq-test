@@ -6,7 +6,8 @@
         </pre>
         <CircularAnimation/>
         <p id="inscription">
-            Определение стиля мышления........... ........................................................
+            Определение стиля мышления...........
+            ........................................................
         </p>
     </StarsWrapper>
 </template>
@@ -57,6 +58,7 @@ export default {
         line-height: 19px;
         letter-spacing: 0.05em;
         color: #FFFFFF;
+        white-space: pre-line;
     }
     pre::first-letter, #inscription::first-letter {
         text-transform: capitalize;

@@ -20,4 +20,7 @@ export default {
         color: #0C0B10;
         cursor: pointer;
     }
+    a {
+        text-decoration: none;
+    }
 </style>

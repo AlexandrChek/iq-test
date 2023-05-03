@@ -14,6 +14,11 @@ export default {
     components: {
         BurgerMenu,
         TestHeader
+    },
+    mounted() {
+        if(sessionStorage.getItem('testHead')) {
+            this.$store.state.visibleTestHead = true
+        }
     }
 }
 </script>

@@ -64,10 +64,10 @@ export default {
 
     @media(max-height: 690px) and (max-width: 575px) {
         #question {
-            margin: 1.6vh 0 1.4vh 0;
+            margin: 1.3vh 0 1.2vh 0;
         }
         img {
-            margin-bottom: 1.1vh;
+            margin-bottom: 1.05vh;
         }
     }
 </style>
