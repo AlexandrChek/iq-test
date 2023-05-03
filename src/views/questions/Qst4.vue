@@ -41,7 +41,7 @@ export default {
 <style scoped>
     #question {
         margin: 4.55vh 0 5.19vh 0;
-        padding: 0 6.59%;
+        padding: 0 21.3px;
     }
     .answers {
         height: 41.13vh;

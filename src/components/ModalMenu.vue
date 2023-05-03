@@ -1,7 +1,7 @@
 <template>
     <div class="modal">
         <div class="cross-wrapper">
-            <div class="cross" @click="closeModal">&#10060;</div>
+            <div class="cross" @click="closeModal">&#215;</div>
         </div>
         <nav>
             <router-link to="/" @click="hideTestHead(), closeModal()">ГЛАВНАЯ</router-link>
@@ -45,9 +45,9 @@ export default {
         margin-bottom: 64px;
     }
     .cross {
-        font-size: 28px;
+        font-size: 77px;
         line-height: 28px;
-        margin: 18px 13px 0 0;
+        margin: 17px 12px 0 0;
         color: #FFC700;
         cursor: pointer;
     }
