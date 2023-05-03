@@ -107,7 +107,6 @@ export default {
         font-family: 'Roboto';
         font-weight: 400;
         font-size: 10px;
-        line-height: 23px;
         letter-spacing: 0.05em;
         color: rgba(255, 255, 255, 0.5);
     }
@@ -155,9 +154,5 @@ export default {
         .transparent-btn {
             margin-bottom: 6vh;
         }
-        #copyright {
-            line-height: 11px;
-    }
-
     }
 </style>

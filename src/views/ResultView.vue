@@ -51,7 +51,7 @@ export default {
     data() {
         return {
             timer: '10:00',
-            timeLeft: 10,
+            timeLeft: 600,
             btnPressed: false,
             response: []
         }

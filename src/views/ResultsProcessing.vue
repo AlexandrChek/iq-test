@@ -52,7 +52,7 @@ export default {
     }
     #inscription {
         margin: 19.05vh auto 0 auto;
-        width: 276px;
+        width: 280px;
         font-weight: 400;
         font-size: 14px;
         line-height: 19px;
