@@ -22,21 +22,22 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '../scss/variables';
+@import '../scss/mixins';
+
     .ans-wrapper {
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
     }
     .square {
+        @include text('PT Serif', 400, 20px, 37px, normal);
         height: 41px;
         width: 41px;
         box-sizing: border-box;
-        background: #FFFFFF;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 37px;
+        background: $main-text-col;
         text-align: center;
-        color: #0D0C11;
+        color: $black-back;
     }
 </style>

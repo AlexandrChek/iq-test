@@ -1,10 +1,9 @@
 <template>
     <ProgressBar progress="29.23%"/>
-    <QstParagraph id="question">{{ question }}</QstParagraph>
+    <p id="question">{{ question }}</p>
     <StandartAnswer class="answers"
         :answers="answers"
         itemHeight="14.04%"
-        circleMrg="auto 39px auto 35px"
         @ansSelected="transmitAns">
         {{ ans }}
     </StandartAnswer>
@@ -12,7 +11,6 @@
 
 <script>
 import ProgressBar from '@/components/ProgressBar.vue'
-import QstParagraph from '@/components/QstParagraph.vue'
 import StandartAnswer from '@/components/StandartAnswer.vue'
 
 
@@ -20,12 +18,11 @@ export default {
     name: 'Qst4',
     components: {
         ProgressBar,
-        QstParagraph,
         StandartAnswer
     },
     data() {
         return {
-            question: 'Продолжите числовой ряд: 18 20 24 32',
+            question: 'Continue the number line: 18 20 24 32',
             answers: ['62', '48', '74', '57', '60', '77']
         }
     },
@@ -38,13 +35,17 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '@/scss/extends';
+
     #question {
-        margin: 4.55vh auto 5.19vh auto;
+        margin: 5.72vh auto;
         width: 280px;
+        @extend %question;
+        @extend %qst-with-stand-ans;
     }
     .answers {
-        height: 41.13vh;
+        height: 47.98vh;
         display: flex;
         width: 100%;
         flex-direction: column;
@@ -53,7 +54,7 @@ export default {
 
     @media(min-width: 576px) and (orientation: landscape) {
         #question {
-            margin: 31.5px auto 36px auto;
+            margin: 34px auto;
         }
         .answers {
             height: 285px; 
@@ -61,10 +62,10 @@ export default {
     }
     @media(min-width: 768px) {
         #question {
-            margin: 4.55vh auto 5.19vh auto;
+            margin: 5.72vh auto;
         }
         .answers {
-            height: 41.13vh;
+            height: 47.98vh;
         }
     }
 </style>

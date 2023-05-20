@@ -1,13 +1,14 @@
 <template>
     <StarsWrapper class="processing">
         <ProgressBar progress="100%"/>
-        <pre>Обработка
-            результатов
+        <pre>
+            Results
+            processing
         </pre>
         <CircularAnimation/>
         <p id="inscription">
-            Определение стиля мышления...........
-            ........................................................
+            Determining the style of thinking.......... 
+            .........................................................
         </p>
     </StarsWrapper>
 </template>
@@ -35,63 +36,69 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '../scss/variables';
+@import '../scss/mixins';
+
+$heading-distance: 2.87vh;
+$height: calc(100vh - $head-height-vh - $heading-distance);
+$height-992: calc(100vh - $head-height-992-vh - $heading-distance);
+
+%text-settings {
+    color: $main-text-col;
+    white-space: pre-line;
+    &::first-letter {
+        text-transform: capitalize;
+    }
+}
+
     .processing {
-        height: 75.32vh;
-        padding-top: 9.09vh;
+        height: $height;
+        padding-top: calc($head-height-vh + $heading-distance);
         overflow: hidden;
     }
     pre {
-        margin-top: 7.5vh;
-        font-weight: 400;
-        font-size: 23px;
-        line-height: 30px;
-        letter-spacing: 0.05em;
-        color: #FFFFFF;
-        white-space: pre-line;
+        margin: 8.25vh 0 6.73vh 0;
+        @include text('PT Serif', 400, 23px, 30px, 0.05em);
+        @extend %text-settings;
     }
     #inscription {
-        margin: 19.05vh auto 0 auto;
-        width: 280px;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 19px;
-        letter-spacing: 0.05em;
-        color: #FFFFFF;
-        white-space: pre-line;
-    }
-    pre::first-letter, #inscription::first-letter {
-        text-transform: capitalize;
+        margin: 25.42vh auto 0 auto;
+        width: 286px;
+        @include text('PT Serif', 400, 14px, 19px, 0.05em);
+        @extend %text-settings;
     }
 
     @media(min-width: 576px) and (orientation: landscape) {
         .processing {
-            height: 500px;
-            padding-top: 60px;
+            height: 531px;
+            padding-top: calc($head-height + 17px);
         }
         pre {
-            margin-top: 52px;
+            margin: 49px 0 40 0;
         }
         #inscription {
-            margin: 132px auto 0 auto;
+            margin: 151px auto 0 auto;
         }
     }
     @media(min-width: 768px) {
         .processing {
-            height: 75.32vh;
-            padding-top: 9.09vh;
+            height: $height;
+            padding-top: calc($head-height-vh + $heading-distance);
         }
         pre {
-            margin-top: 7.5vh;
+            margin: 8.25vh 0 6.73vh 0;
         }
         #inscription {
-            margin: 19.05vh auto 0 auto;
+            margin: 25.42vh auto 0 auto;
+            width: 310px;
+            @include text('PT Serif', 400, 15px, 20px, 0.05em);
         }
     }
-    @media(min-width: 1400px) {
+    @media(min-width: 992px) {
         .processing {
-            height: 76.3vh;
-            padding-top: 11.5vh;
+            height: $height-992;
+            padding-top: calc($head-height-992-vh + $heading-distance);
         }
     }
 </style>

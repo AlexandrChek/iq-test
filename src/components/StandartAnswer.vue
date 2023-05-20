@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="(ans, index) in answers" :key="index" class="ans-wrapper" :id="`ans-wrapper-${index}`" @click="selectAns(ans, index)">
-            <div class="circle" :id="`circle-${index}`" :style="`margin: ${circleMrg};`"></div>
+            <div class="circle" :id="`circle-${index}`"></div>
             <p class="answer" :id="`ans-${index}`">{{ ans }}</p>
         </div>
     </div>
@@ -10,7 +10,7 @@
 <script>
 export default {
     name: 'StandartAnswer',
-    props: ['answers', 'itemHeight', 'circleMrg'],
+    props: ['answers', 'itemHeight'],
     mounted() {
         const wrappers = document.querySelectorAll('.ans-wrapper')
         wrappers.forEach(e => e.style.height = this.itemHeight)
@@ -27,8 +27,8 @@ export default {
             const circle = document.querySelector(`#circle-${index}`)
             const answer = document.querySelector(`#ans-${index}`)
             wrapper.style.backgroundColor = '#FFC700'
-            circle.style.cssText = `background: #2950C2; border: 1px solid #272727;`
-            answer.style.color = '#272727'
+            circle.style.cssText = `background: #2950C2; border: 1px solid #181818;`
+            answer.style.color = '#0D0C11'
             allCircles.forEach(e => e.style.margin = this.circleMrg)
             this.$emit('ansSelected', ans)
         }
@@ -36,32 +36,34 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '../scss/variables';
+@import '../scss/mixins';
+
     .ans-wrapper {
         display: flex;
         width: 100%;
         background: rgba(242, 243, 243, 0.15);
     }
     .circle {
-        border: 1px solid #FFFFFF;
+        border: 1px solid $main-text-col;
         box-sizing: border-box;
         width: 20px;
         height: 20px;
+        margin: auto 35px;
         border-radius: 50%;
         flex-shrink: 0;
     }
     .answer {
-        font-weight: 400;
-        font-size: 18px;
-        letter-spacing: 0.05em;
-        color: #FFFFFF;
+        @include text('PT Serif', 400, 18px, 20px, 0.05em);
+        color: $main-text-col;
         margin: auto 0;
         padding-right: 5%;
         text-align: start;
         white-space: pre-line;
-    }
-    .answer::first-letter {
-        text-transform: capitalize;
+        &::first-letter {
+            text-transform: capitalize;
+        }
     }
 
     @media(min-width: 576px) {

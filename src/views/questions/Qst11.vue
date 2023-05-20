@@ -1,14 +1,12 @@
 <template>
     <ProgressBar progress="74.62%"/>
-    <QstParagraph id="question">{{ question }}</QstParagraph>
+    <p id="question">{{ question }}</p>
     <img src="@/assets/star.png" alt="Star">
-    <div class="stick"></div>
     <WhiteSquareAnswer :answers="answers" style="width: 286px;" @ansSelected="transmitAns"/>
 </template>
 
 <script>
 import ProgressBar from '@/components/ProgressBar.vue'
-import QstParagraph from '@/components/QstParagraph.vue'
 import WhiteSquareAnswer from '@/components/WhiteSquareAnswer.vue'
 
 
@@ -16,12 +14,11 @@ export default {
     name: 'Qst11',
     components: {
         ProgressBar,
-        QstParagraph,
         WhiteSquareAnswer
     },
     data() {
         return {
-            question: 'Вставьте подходящее число',
+            question: 'Insert the appropriate number',
             answers: ['34', '36', '53', '44', '66', '42']
         }
     },
@@ -34,55 +31,39 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '@/scss/extends';
+
     #question {
-        margin: 5.19vh 0 2.74vh 0;
+        margin: 4.04vh 0;
         padding: 0 15.3%;
-        line-height: 24px;
-        
+        @extend %question;
+        @extend %qst-with-square-ans;
     }
     img {
-        margin-bottom: 3.46vh;
-    }
-    .stick {
-        height: 4px;
-        background: #F2F3F3;
-        opacity: 0.15;
-        margin-bottom: 2.89vh;
+        margin-bottom: 6.23vh;
     }
 
     @media(min-width: 576px) and (orientation: landscape) {
         #question {
-            margin: 36px 0 19px 0;
+            margin: 24px 0;
         }
         img {
-            margin-bottom: 24px;
-        }
-        .stick {
-            margin-bottom: 20px;
+            margin-bottom: 37px;
         }
     }
     @media(min-width: 768px) {
         #question {
-            margin: 5.2vh 0 2.74vh 0;
+            margin: 4.04vh 0;
         }
         img {
-            margin-bottom: 3.46vh;
-        }
-        .stick {
-            margin-bottom: 2.9vh;
+            margin-bottom: 6.23vh;
         }
     }
 
-    @media(max-height: 690px) and (max-width: 575px) {
-        #question {
-            margin: 2.7vh 0 1.7vh 0;
-        }
+    @media(max-height: 550px) and (max-width: 575px) {
         img {
-            margin-bottom: 1.5vh;
-        }
-        .stick {
-            margin-bottom: 2.2vh;
+            margin-bottom: 4vh;
         }
     }
 </style>

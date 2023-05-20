@@ -10,14 +10,16 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '../scss/variables';
+
     div {
         border-radius: 50%;
         width: 16px;
         height: 16px;
         margin: 0 auto;
-        background: #FFFFFF;
-        color: #0C0B10;
+        background: $main-text-col;
+        color: $black-back;
         cursor: pointer;
     }
     a {

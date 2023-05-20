@@ -8,27 +8,19 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '../scss/mixins';
+@import '../scss/variables';
+
     div {
         background-image: url('../assets/bk-test.png');
-        background-repeat: no-repeat;
-        -webkit-background-size: cover;
-        -o-background-size: cover;
-        -moz-background-size: cover;
-        -ms-background-size: cover;
-        -khtml-background-size: cover;
-        background-size: cover;
-    }
-
-    @media(min-width: 992px) {
-        div {
-            width: 70%;
+        @include back-img-set(cover);
+        @media(min-width: 992px) {
+            width: $width-992;
             margin: 0 auto;
         }
-    }
-    @media(min-width: 1400px) {
-        div {
-            width: 60%;
+        @media(min-width: 1400px) {
+            width: $width-1400;
         }
     }
 </style>

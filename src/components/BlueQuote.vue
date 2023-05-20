@@ -4,15 +4,7 @@
             <img id="lft-qt" src="../assets/left-quote.png" alt="Quote">
         </div>
         <p>
-            Профессиональный 
-            <br/>IQ-тест позволяет не 
-            <br/>только определить 
-            <br/>коэффициент вашего 
-            <br/>интеллекта, 
-            <br/>но и выработать список 
-            <br/>рекомендаций для 
-            <br/>повышения этого 
-            <br/>показателя.
+            A professional IQ test allows you not only to determine your IQ, but also to develop a list of recommendations to improve this indicator.
         </p>
         <div class="rt-qt-wrapper">
             <img id="rt-qt" src="../assets/right-quote.png" alt="Quote">
@@ -26,53 +18,38 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '../scss/mixins';
+@import '../scss/variables';
+
+@mixin quote($align) {
+    text-align: $align;
+    width: 296px;
+    margin: 0 auto;
+}
+
     .quote-wrapper {
         background-image: radial-gradient(84.34% 50.29% at 48.75% 49.71%, #2950C2 0%, rgba(38, 91, 199, 0.96) 40.62%, rgba(39, 98, 187, 0) 85.42%), url('../assets/bk-quote.png');
-        background-repeat: no-repeat;
-        -webkit-background-size: 100% 100%;
-        -o-background-size: 100% 100%;
-        -moz-background-size: 100% 100%;
-        -ms-background-size: 100% 100%;
-        -khtml-background-size: 100% 100%;
-        background-size: 100% 100%;
-        padding: 4vh 0;
-    }
-    p {
-        font-family: 'Yeseva One';
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 23px;
-        letter-spacing: 0.05em;
-        color: #FFFFFF;
-        margin: 0;
-    }
-    .lft-qt-wrapper {
-        text-align: start;
-        width: 260px;
-        margin: 0 auto;
-    }
-    .rt-qt-wrapper {
-        text-align: end;
-        width: 255px;
-        margin: 0 auto;
-    }
-
-    @media(min-width: 992px) {
-        .quote-wrapper {
-            width: 70%;
+        @include back-img-set(100% 100%);
+        padding: 43.3px 0 54.7px 0;
+        @media(min-width: 992px) {
+            width: $width-992;
             margin: 0 auto;
         }
-    }
-    @media(min-width: 1400px) {
-        .quote-wrapper {
-            width: 60%;
+        @media(min-width: 1400px) {
+            width: $width-1400;
         }
     }
-
-    @media(max-height: 690px) and (max-width: 575px) {
-        .quote-wrapper {
-            padding: 3vh 0;
-        }
+    p {
+        @include text('Yeseva One', 400, 18px, 23px, 0.05em);
+        color: $main-text-col;
+        width: 248px;
+        margin: 30px auto;
+    }
+    .lft-qt-wrapper {
+        @include quote(start);
+    }
+    .rt-qt-wrapper {
+        @include quote(end);
     }
 </style>

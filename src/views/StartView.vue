@@ -1,14 +1,15 @@
 <template>
   <StarsWrapper class="home">
-    <p class="white-start">Пройдите точный и быстрый</p>
-    <p class="yellow-end">ТЕСТ НА <br/>ОПРЕДЕЛЕНИЕ <br/>IQ</p>
+    <p class="white-start">TAKE AN ACCURATE AND QUICK</p>
+    <p class="yellow-end">IQ TEST</p>
     <BigBrain/>
-    <MyButton class="yellow-btn" @click="startTest">ПРОЙТИ ТЕСТ</MyButton>
-    <StartViewTextDn class="yellow-text-dn">И получите рекомендации <br/>по развитию своего интеллекта</StartViewTextDn>
-    <StartViewTextDn class="white-text-dn">и улучшению финансового <br/>благосостояния и личной жизни</StartViewTextDn>
+    <MyButton class="yellow-btn" @click="startTest">START TEST</MyButton>
+    <p class="text-dn">
+      You will receive recomendations for the development of your intellect and for improving financial condition and personal life
+    </p>
     <div class="details">
       <RoundArrow/>
-      <p id="legend">Подробнее</p>
+      <p id="legend">more</p>
     </div>
   </StarsWrapper>
 </template>
@@ -17,7 +18,6 @@
 import StarsWrapper from '../components/StarsWrapper.vue'
 import BigBrain from '../components/BigBrain.vue'
 import MyButton from '../components/MyButton.vue'
-import StartViewTextDn from '../components/StartViewTextDn.vue'
 import RoundArrow from '../components/RoundArrow.vue'
 
 export default {
@@ -26,7 +26,6 @@ export default {
     StarsWrapper,
     BigBrain,
     MyButton,
-    StartViewTextDn,
     RoundArrow
   },
   updated() {
@@ -44,114 +43,54 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '../scss/variables';
+@import '../scss/extends';
+@import '../scss/mixins';
+
   .home {
-    height: 75.32vh;
-    padding-top: 10.54vh;
+    padding: calc($head-height + 27px) 0 12px 0;
   }
   .white-start {
-    margin: 0 0 3.17vh 0;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 24px;
-    letter-spacing: 0.05em;
-    color: #FFFFFF;
+    margin: 0 0 26px 0;
+    @include text('PT Serif', 400, 18px, 27px, 0.05em);
+    text-transform: uppercase;
+    color: $main-text-col;
   }
   .yellow-end {
-    margin: 0;
-    font-family: 'Yeseva One';
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 35px;
-    letter-spacing: 0.03em;
+    margin: 0 0 50px 0;
+    @include text('Yeseva One', 400, 30px, 35px, 0.03em);
     text-transform: uppercase;
-    color: #FFC700;
+    color: $active-col;
   }
   .yellow-btn {
-    margin-bottom: 3.17vh;
-    background: radial-gradient(50% 50% at 50% 50%, #FFC700 0%, #FFC700 100%);
+    margin: 16px 0 22px 0;
+    @extend %yellow-button;
   }
-  .yellow-text-dn {
-    color: #FFC700;
-  }
-  .white-text-dn {
-    color: #FFFFFF;
+  .text-dn {
+    width: 286px;
+    margin: 0 auto;
+    @include text('PT Serif', 700, 15px, 19px, 0.05em);
+    color: $main-text-col;
   }
   .details {
-    margin-top: 2.8vh;
+    margin-top: 14px;
   }
   #legend {
-    font-weight: 400;
-    font-size: 8px;
-    line-height: 11px;
-    letter-spacing: 0.05em;
-    color: #FFFFFF;
-    margin: 0.43vh 0;
+    @include text('PT Serif', 400, 10px, 13px, 0.05em);
+    color: $active-col;
+    margin: 3px 0;
   }
 
-  @media(min-width: 576px) and (orientation: landscape) {
-    .home {
-      height: 500px;
-      padding-top: 60px;
-    }
-    .white-start {
-      margin: 0 0 11px 0;
-    }
-    .yellow-btn {
-      margin-bottom: 24px;
-    }
-    .details {
-      margin-top: 24px;
-    }
-    #legend {
-      margin: 3px 0;
-    }
-  }
   @media(min-width: 768px) {
-    .home {
-      height: 75.32vh;
-      padding-top: 10.54vh;
-    }
-    .white-start {
-      margin: 0 0 3.17vh 0;
-    }
     .yellow-btn {
-      margin-bottom: 3.17vh;
-    }
-    .details {
-      margin-top: 2.8vh;
+      margin: 16px 0 30px 0;
     }
     #legend {
-      margin: 0.43vh 0;
+      @include text('PT Serif', 400, 11px, 13px, 0.05em);
     }
-  }
-  @media(min-width: 992px) {
-    #legend {
-      font-size: 11px;
-    }
-  }
-  @media(min-width: 1400px) {
     .home {
-      height: 76.3vh;
-      padding-top: 11.5vh;
-    }
-  }
-
-  @media(max-height: 690px) and (max-width: 575px) {
-    .white-start {
-      font-size: 14.4px;
-      line-height: 19.2px;
-      margin: 0 0 3vh 0;
-    }
-    .yellow-end {
-      font-size: 24px;
-      line-height: 28px;
-    }
-    .details {
-    margin-top: 1.5vh;
-  }
-    .home {
-      padding-top: 9.7vh;
+      padding: calc($head-height-992 + 27px) 0 27px 0;
     }
   }
 </style>

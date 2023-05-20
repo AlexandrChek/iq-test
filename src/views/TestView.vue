@@ -1,7 +1,7 @@
 <template>
   <StarsWrapper class="test">
     <component :is="currentQuestion" @ansTransmited="saveAns"></component>
-    <MyButton id="next-btn" @click="goToNext">ДАЛЕЕ</MyButton>
+    <MyButton id="next-btn" @click="goToNext">NEXT</MyButton>
   </StarsWrapper>
 </template>
 
@@ -61,43 +61,40 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '../scss/variables';
+@import '../scss/extends';
+$height: calc(100vh - $head-height-vh - 2.87vh);
+$height-992: calc(100vh - $head-height-992-vh - 2.87vh);
+
   .test {
-    height: 75.32vh;
-    padding-top: 9.09vh;
+    height: $height;
+    padding-top: calc($head-height-vh + 2.87vh);
     position: relative;
     z-index: 0;
+    @media(min-width: 576px) and (orientation: landscape) {
+      height: 531px;
+      padding-top: calc($head-height + 17px);
+    }
+    @media(min-width: 768px) {
+      height: $height;
+      padding-top: calc($head-height-vh + 2.87vh);
+    }
+    @media(min-width: 992px) {
+      height: $height-992;
+      padding-top: calc($head-height-992-vh + 2.87vh);
+    }
   }
   #next-btn {
     position: absolute;
     left: calc((100% - 189px) / 2);
-    bottom: 3.3vh;
-  }
-  #next-btn:disabled {
-    background: #DADADA;
-    box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25);
-    color: #8E8E8E;
-  }
-  #next-btn:enabled {
-    background: radial-gradient(50% 50% at 50% 50%, #FFC700 0%, #FFC700 100%);
-  }
-
-  @media(min-width: 576px) and (orientation: landscape) {
-    .test {
-      height: 500px;
-      padding-top: 60px;
+    bottom: 8.58vh;
+    &:disabled {
+      background: #DADADA;
+      color: #8E8E8E;
     }
-  }
-  @media(min-width: 768px) {
-    .test {
-      height: 75.32vh;
-      padding-top: 9.09vh;
-    }
-  }
-  @media(min-width: 1400px) {
-    .test {
-      height: 76.3vh;
-      padding-top: 11.5vh;
+    &:enabled {
+      @extend %yellow-button;
     }
   }
 </style>

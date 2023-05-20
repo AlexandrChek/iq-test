@@ -41,10 +41,10 @@ export default {
         box-sizing: border-box;
     }
 
-    @media(max-height: 690px) and (max-width: 575px) {
+    @media(max-height: 545px) and (max-width: 575px) {
         .ans-wrapper {
-            height: 255px;
-            width: 255px;
+            height: 250px;
+            width: 250px;
         }
     }
 </style>

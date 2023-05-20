@@ -1,13 +1,12 @@
 <template>
     <ProgressBar progress="55.77%"/>
-    <QstParagraph id="question">{{ question }}</QstParagraph>
+    <p id="question">{{ question }}</p>
     <img src="@/assets/people.png" alt="Dancing men">
     <WhiteSquareAnswer :answers="answers" style="width: 251px;" @ansSelected="transmitAns"/>
 </template>
 
 <script>
 import ProgressBar from '@/components/ProgressBar.vue'
-import QstParagraph from '@/components/QstParagraph.vue'
 import WhiteSquareAnswer from '@/components/WhiteSquareAnswer.vue'
 
 
@@ -15,12 +14,11 @@ export default {
     name: 'Qst8',
     components: {
         ProgressBar,
-        QstParagraph,
         WhiteSquareAnswer
     },
     data() {
         return {
-            question: 'Выберите правильную фигуру из четырёх пронумерованных.',
+            question: 'Choose the correct figure from the four numbered ones:',
             answers: ['1', '2', '3', '4']
         }
     },
@@ -33,41 +31,41 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '@/scss/extends';
+
     #question {
-        margin: 2.96vh 0 3.61vh 0;
-        padding: 0 4.69%;
-        font-size: 18px;
-        line-height: 24px;
-        
+        margin: 3.7vh 0;
+        @extend %question;
+        @extend %qst-with-square-ans;
     }
     img {
-        margin-bottom: 3.46vh;
+        margin-bottom: 3.87vh;
     }
 
     @media(min-width: 576px) and (orientation: landscape) {
         #question {
-            margin: 20px 0;
+            margin: 22px 0;
         }
         img {
-            margin-bottom: 24px;
+            margin-bottom: 23px;
         }
     }
     @media(min-width: 768px) {
         #question {
-            margin: 3.7vh 0 3.7vh 0;
+            margin: 3.7vh 0;
         }
         img {
-            margin-bottom: 3.5vh;
+            margin-bottom: 3.87vh;
         }
     }
 
-    @media(max-height: 690px) and (max-width: 575px) {
+    @media(max-height: 570px) and (max-width: 575px) {
         #question {
-            margin: 1.3vh 0 1.2vh 0;
+            margin: 2vh 0;
         }
         img {
-            margin-bottom: 1.05vh;
+            margin-bottom: 2.1vh;
         }
     }
 </style>

@@ -1,0 +1,18 @@
+@mixin text($f-family, $f-weight, $f-size, $l-height, $l-spacing) {
+    font-family: $f-family;
+    font-style: normal;
+    font-weight: $f-weight;
+    font-size: $f-size;
+    line-height: $l-height;
+    letter-spacing: $l-spacing;
+}
+
+@mixin back-img-set($size) {
+    background-repeat: no-repeat;
+    -webkit-background-size: $size;
+    -o-background-size: $size;
+    -moz-background-size: $size;
+    -ms-background-size: $size;
+    -khtml-background-size: $size;
+    background-size: $size;
+}

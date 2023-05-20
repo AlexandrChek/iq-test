@@ -1,25 +1,20 @@
 <template>
     <StarsWrapper id="main-wrapper">
-        <div id="fixed-box">
-            <p id="promise-1">
-                Прохождение теста займет у 
-                вас не более<span class="yellow-text"> 12 минут</span>, а его 
-                результаты вы сможете 
-                <span class="yellow-text">использовать всю жизнь.</span>
-            </p>
-        </div>
-        <p id="promise-2">
-            Профессиональная 
-            интерпретация и детально 
-            <span class="bold-text">проработанные 
-            рекомендации</span> позволят вам 
-            качественно<span class="bold-text"> изменить все 
-            аспекты своей жизни:</span> от 
-            финансового до любовного.
+        <p id="promise-1">
+            The test will take you no more 
+            than<span class="yellow-text"> 12 minutes</span>, and you can 
+            use it`s results <span class="yellow-text">for all your life.</span>
         </p>
         <img src="../assets/lightning.png" id="lightning-1" alt="Lightning">
         <img src="../assets/lightning_2.png" id="lightning-2" alt="Lightning">
-        <MyButton class="transparent-btn" @click="startTest">ПРОЙТИ ТЕСТ</MyButton>
+        <p id="promise-2">
+            Professional interpretation and 
+            detailed <span class="bold-text">recommendations</span> will 
+            allow you to<span class="bold-text"> change the quality 
+            of your life in all its aspects:</span> 
+            from financial to love.
+        </p>
+        <MyButton class="transparent-btn" @click="startTest">START TEST</MyButton>
         <p id="copyright">&#169; 2019</p>
     </StarsWrapper>
 </template>
@@ -43,116 +38,79 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '../scss/mixins';
+@import '../scss/variables';
+
     #main-wrapper {
-        height: 76.62vh;
-        padding-top: 7.79vh;
+        padding-bottom: 13px;
         position: relative;
     }
-    #fixed-box {
-        width: 303px;
-        margin: 0 auto;
-    }
     #promise-1 {
-        font-family: 'Merriweather';
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 20px;
-        letter-spacing: 0.05em;
-        color: #FFFFFF;
+        @include text('Merriweather', 400, 15px, 20px, 0.05em);
+        color: $main-text-col;
         text-align: start;
         width: 262px;
+        margin: 0;
         white-space: pre-line;
+        position: absolute;
+        left: calc((100% - 298px) / 2);
+        top: 54px;
     }
     #promise-2 {
-        font-family: 'Merriweather';
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 23px;
-        letter-spacing: 0.05em;
-        color: #181818;
+        @include text('Merriweather', 400, 16px, 23px, 0.05em);
+        color: $black-back;
         background: rgba(243, 243, 242, 0.8);
         border-radius: 20px;
         text-align: start;
         width: 274px;
         white-space: pre-line;
-        margin: 3.9vh auto;
-        padding: 4.18vh 15px 4.47vh 14px;
+        padding: 30px 15px;
+        margin: 0;
+        position: absolute;
+        left: calc((100% - 304px) / 2);
+        top: 155px;
     }
     .yellow-text {
-        color: #FFC700;
+        color: $active-col;
     }
     .bold-text {
-        font-weight: bold;
+        font-weight: 700;
     }
     #lightning-1 {
         position: absolute;
-        top: 12%;
-        left: calc(100% - 123px);
+        top: 63px;
+        right: 0;
+        @media(min-width: 576px) {
+            width: 25%;
+        }
+        @media(min-width: 768px) {
+            width: 19%;
+        }
     }
     #lightning-2 {
         position: absolute;
         left: 0;
-        top: 50%;
+        top: 233px;
+        @media(min-width: 576px) {
+            width: 25%;
+            top: 220px;
+        }
+        @media(min-width: 768px) {
+            width: 22.5%;
+            top: 165px;
+        }
     }
     .transparent-btn {
         box-sizing: border-box;
-        border: 1px solid #FFFFFF;
+        border: 1px solid $main-text-col;
         background-color: rgba(0, 0, 0, 0);
-        color: #FFFFFF;
-        margin-bottom: 11.8vh;
+        color: $main-text-col;
+        margin: 404px 0 52px 0;
     }
     #copyright {
+        @include text('Roboto', 400, 10px, 23px, 0.05em);
         margin: 0;
-        font-family: 'Roboto';
-        font-weight: 400;
-        font-size: 10px;
-        letter-spacing: 0.05em;
         color: rgba(255, 255, 255, 0.5);
-    }
-
-    @media(min-width: 576px) and (orientation: landscape) {
-        #main-wrapper {
-            height: 500px;
-        }
-        #promise-2 {
-            margin: 27px auto;
-        }
-        .transparent-btn {
-            margin-bottom: 57px;
-        }
-    }
-    @media(min-width: 576px) {
-        #lightning-1 {
-            width: 25%;
-            left: 75%;
-        }
-        #lightning-2 {
-            width: 22%;
-        }
-    }
-    @media(min-width: 768px) {
-        #main-wrapper {
-            height: 70vh;
-        }
-        #promise-2 {
-            margin: 3.9vh auto;
-        }
-        #lightning-1 {
-            width: 19%;
-            left: 81%;
-        }
-        #lightning-2 {
-            width: 19%;
-        }
-        .transparent-btn {
-            margin-bottom: 11.8vh;
-        }
-    }
-
-    @media(max-height: 690px) and (max-width: 575px) {
-        .transparent-btn {
-            margin-bottom: 6vh;
-        }
     }
 </style>

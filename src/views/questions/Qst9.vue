@@ -1,10 +1,9 @@
 <template>
     <ProgressBar progress="57.69%"/>
-    <QstParagraph id="question">{{ question }}</QstParagraph>
+    <p id="question">{{ question }}</p>
     <StandartAnswer class="answers"
         :answers="answers"
-        itemHeight="32.3%"
-        circleMrg="auto 15px auto 35px"
+        itemHeight="28.68%"
         @ansSelected="transmitAns">
         {{ ans }}
     </StandartAnswer>
@@ -12,7 +11,6 @@
 
 <script>
 import ProgressBar from '@/components/ProgressBar.vue'
-import QstParagraph from '@/components/QstParagraph.vue'
 import StandartAnswer from '@/components/StandartAnswer.vue'
 
 
@@ -20,20 +18,15 @@ export default {
     name: 'Qst9',
     components: {
         ProgressBar,
-        QstParagraph,
         StandartAnswer
     },
     data() {
         return {
-            question: 'Вам привычнее и важнее:',
+            question: 'It is more familiar and more important for you:',
             answers: [
-                `Наслаждаться
-                каждой минутой
-                проведенного времени`,
-                `Быть устремленными
-                мыслями в будущее`,
-                `Учитывать в ежедневной
-                практике прошлый опыт`
+                `To enjoy every minute of your time`,
+                `To be directed thoughts into the future`,
+                `To take into account past experience in daily practice`
             ]
         }
     },
@@ -46,13 +39,17 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '@/scss/extends';
+
     #question {
-        margin: 6.78vh 0 4.76vh 0;
-        padding: 0 5%;
+        margin: 4.55vh 0;
+        padding: 0 12.5%;
+        @extend %question;
+        @extend %qst-with-stand-ans;
     }
     .answers {
-        height: 40vh;
+        height: 45.79vh;
         display: flex;
         width: 100%;
         flex-direction: column;
@@ -61,18 +58,18 @@ export default {
 
     @media(min-width: 576px) and (orientation: landscape) {
         #question {
-            margin: 47px 0 33px 0;
+            margin: 27px 0;
         }
         .answers {
-            height: 277px; 
+            height: 272px; 
         }
     }
     @media(min-width: 768px) {
         #question {
-            margin: 6.78vh 0 4.76vh 0;
+            margin: 4.55vh 0;
         }
         .answers {
-            height: 40vh; 
+            height: 45.79vh; 
         }
     }
 </style>

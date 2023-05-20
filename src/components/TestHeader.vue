@@ -3,10 +3,8 @@
         <div id="pic-wrapper">
             <img src="../assets/brain.png" alt="Brain">
         </div>
-        <p v-if="$store.state.iqTestHeader" class="paragraph test-head">
-            ТЕСТ НА ОПРЕДЕЛЕНИЕ IQ
-        </p>
-        <p v-else class="paragraph ready">ГОТОВО!</p>
+        <p v-if="$route.params.id || $route.path === '/processing'" class="test-head">IQ TEST</p>
+        <p v-else class="ready">READY!</p>
     </div>
 </template>
 
@@ -16,7 +14,17 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '../scss/variables';
+@import '../scss/mixins';
+
+%text-header {
+    text-transform: uppercase;
+    color: $active-col;
+    height: 100%;
+    margin: 0;
+}
+
     #main-wrapper {
         width: 100%;
         display: flex;
@@ -27,24 +35,15 @@ export default {
         height: 100%;
     }
     img {
-        height: 100%;
-    }
-    .paragraph {
-        font-family: 'Yeseva One';
-        font-weight: 400;
-        text-transform: uppercase;
-        color: #FFC700;
-        height: 100%;
-        line-height: 6.64vh;
-        margin: 0;
+        height: $head-height;
     }
     .test-head {
-        font-size: 12px;
-        letter-spacing: 0.05em;
+        @include text('Yeseva One', 400, 12px, $head-height, 0.05em);
+        @extend %text-header;
     }
     .ready {
-        font-size: 20px;
-        letter-spacing: 0.1em;
+        @include text('Yeseva One', 400, 20px, $head-height, 0.1em);
+        @extend %text-header;
     }
 
     @media(min-width: 576px) {
@@ -56,19 +55,16 @@ export default {
         #pic-wrapper {
             margin: 0 1.5% 0 0;
         }
-        img {
-            height: 46px;
-        }
-        .paragraph {
-            line-height: 46px;
-        }
     }
-    @media(min-width: 768px) {
+    @media(min-width: 992px) {
         img {
-            height: 6.64vh;
+            height: $head-height-992;
         }
-        .paragraph {
-            line-height: 6.64vh;
+        .test-head {
+            @include text('Yeseva One', 400, 12px, $head-height-992, 0.05em);
+        }
+        .ready {
+            @include text('Yeseva One', 400, 20px, $head-height-992, 0.1em);
         }
     }
 </style>

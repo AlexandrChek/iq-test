@@ -1,7 +1,7 @@
 <template>
     <header>
         <BurgerMenu/>
-        <TestHeader v-if="$store.state.visibleTestHead"/>
+        <TestHeader v-if="$route.params.id || $route.path === '/processing' || $route.path === '/result'"/>
     </header>
 </template>
 
@@ -14,33 +14,22 @@ export default {
     components: {
         BurgerMenu,
         TestHeader
-    },
-    mounted() {
-        if(sessionStorage.getItem('testHead')) {
-            this.$store.state.visibleTestHead = true
-        }
     }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '../scss/variables';
+
     header {
         position: fixed;
         width: 100%;
-        background: #181818;
-        height: 6.64vh;
+        background: $black-back;
+        height: $head-height;
         display: flex;
         z-index: 5;
-    }
-
-    @media(min-width: 576px) {
-        header {
-            height: 46px;
-        }
-    }
-    @media(min-width: 768px) {
-        header {
-            height: 6.64vh;
+        @media(min-width: 992px) {
+            height: $head-height-992;
         }
     }
 </style>

@@ -1,11 +1,10 @@
 <template>
     <ProgressBar progress="65.77%"/>
-    <QstParagraph id="question">{{ question }}</QstParagraph>
+    <p id="question">{{ question }}</p>
     <img src="@/assets/piramid.png" alt="Piramid">
     <StandartAnswer class="answers"
         :answers="answers"
-        itemHeight="31.5%"
-        circleMrg="auto 28px auto 35px"
+        itemHeight="30.12%"
         @ansSelected="transmitAns">
         {{ ans }}
     </StandartAnswer>
@@ -13,7 +12,6 @@
 
 <script>
 import ProgressBar from '@/components/ProgressBar.vue'
-import QstParagraph from '@/components/QstParagraph.vue'
 import StandartAnswer from '@/components/StandartAnswer.vue'
 
 
@@ -21,13 +19,12 @@ export default {
     name: 'Qst10',
     components: {
         ProgressBar,
-        QstParagraph,
         StandartAnswer
     },
     data() {
         return {
-            question: 'Какое определение, по-Вашему, больше подходит к этому геометрическому изображению:',
-            answers: ['Оно остроконечное', 'Оно устойчиво', 'Оно находится в состоянии равновесия']
+            question: 'Which statement do you think is more appropriate for this geometric figure:',
+            answers: ['It is pointed', 'It is sustainable', 'It is in equilibrium']
         }
     },
     methods: {
@@ -39,17 +36,20 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '@/scss/extends';
+
     #question {
-        margin: 2.74vh 0;
-        font-size: 16px;
-        line-height: 21px;
+        margin: 1.68vh 0;
+        padding: 0 5.33%;
+        @extend %question;
+        @extend %qst-with-stand-ans;
     }
     img {
-        margin-bottom: 2.6vh;
+        margin-bottom: 3.2vh;
     }
     .answers {
-        height: 24.2vh;
+        height: 27.95vh;
         display: flex;
         width: 100%;
         flex-direction: column;
@@ -58,37 +58,30 @@ export default {
 
     @media(min-width: 576px) and (orientation: landscape) {
         #question {
-            margin: 19px 0;
+            margin: 10px 0;
         }
         img {
-            margin-bottom: 18px;
+            margin-bottom: 19px;
         }
         .answers {
-            height: 168px;
+            height: 166px;
         }
     }
     @media(min-width: 768px) {
         #question {
-            margin: 2.74vh 0;
+            margin: 1.68vh 0;
         }
         img {
-            margin-bottom: 2.7vh;
+            margin-bottom: 3.2vh;
         }
         .answers {
-            height: 24.2vh; 
+            height: 27.95vh; 
         }
     }
 
-    @media(max-height: 690px) and (max-width: 575px) {
-        #question {
-            margin: 1.8vh 0 1.7vh 0;
-        }
+    @media(max-height: 570px) and (max-width: 575px) {
         img {
-            margin-bottom: 1.5vh;
-        }
-        .answers {
-            font-size: 16px;
-            line-height: 19px;
+            margin-bottom: 1.7vh;
         }
     }
 </style>

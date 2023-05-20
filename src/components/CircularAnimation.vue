@@ -1,31 +1,18 @@
 <template>
-    <div class="circle-wrapper"
-        v-for="item in 11"
-        :style="`
-            -webkit-animation-delay: ${delays[item - 1]}ms;
-            animation-delay: ${delays[item - 1]}ms;
-        `">
-        <div class="circle"
-            :style="`
-                -webkit-animation-delay: ${delays[item - 1]}ms;
-                animation-delay: ${delays[item - 1]}ms;
-            `" >
-        </div>
+    <div class="circle-wrapper" v-for="item in 11" :id="`wrapper-${item}`">
+        <div class="circle" :id="`circle-${item}`"></div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'CircularAnimation',
-    data() {
-        return {
-            delays: ['0', '182', '364', '546', '728', '910', '1092', '1274', '1456', '1638', '1820']
-        }
-    }
+    name: 'CircularAnimation2'
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '../scss/variables';
+
     .circle-wrapper {
         position: relative;
         top: 0;
@@ -39,9 +26,16 @@ export default {
         width: 15px;
         height: 15px;
         border-radius: 50%;
-        background: #3BDE7C;
+        background: $indicators;
         -webkit-animation: scaling 2s linear infinite;
         animation: scaling 2s linear infinite;
+    }
+
+    @for $i from 0 through 10 {
+        #wrapper-#{$i + 1}, #circle-#{$i + 1} {
+            -webkit-animation-delay: $i * 182ms;
+            animation-delay: $i * 182ms;
+        }
     }
 
    @-webkit-keyframes rotating {

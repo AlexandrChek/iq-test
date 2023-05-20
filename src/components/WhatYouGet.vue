@@ -1,19 +1,18 @@
 <template>
     <div id="wrapper">
         <p>
-            Также по результатам теста 
-            <br/><span>вы получите</span> подробные 
-            <br/><span>советы</span> по определению наиболее 
-            <br/>перспективной <span>для вашего 
-            <br/>типа</span><span id="low"> интеллекта</span><span> сферы 
-            <br/>деятельности,</span> 
-            <br/>которая принесет вам скорейший 
-            <br/>финансовый результат.
+            Also, according to test results,
+            <br/><span>YOU WILL RECEIVE </span>detailed
+            <br/><span>ADVICE </span> on determining the most
+            <br/>promising  <span>FIELD OF ACTIVITY
+            <br/>FOR YOUR TYPE OF INTELLECT</span>,
+            <br/>that will bring you the fastest
+            <br/>financial effect.
         </p>
         <div id="pic-wrapper">
             <img src="../assets/brain-zones.png" alt="Brain">
         </div>
-        <MyButton class="yellow-btn" @click="startTest">ПРОЙТИ ТЕСТ</MyButton>
+        <MyButton class="yellow-btn" @click="startTest">START TEST</MyButton>
     </div>
 </template>
 
@@ -32,45 +31,37 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '../scss/variables';
+@import '../scss/extends';
+@import '../scss/mixins';
+
     #wrapper {
-        background-color: white;
-        padding-top: 5.48vh;
+        background-color: $main-text-col;
+        padding: 38px 0;
+        @media(min-width: 992px) {
+            width: $width-992;
+            margin: 0 auto;
+        }
+        @media(min-width: 1400px) {
+            width: $width-1400;
+        }
     }
     p {
+        @include text('PT Serif', 400, 16px, 24px, 0.05em);
         margin: 0 auto;
         width: 298px;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        letter-spacing: 0.05em;
-        color: #272727;
+        color: $black-back;
         text-align: start;
     }
     span {
         text-transform: uppercase;
-        font-weight: bold;
-    }
-    #low {
-        text-transform: none;
+        @include text('PT Serif', 700, 16px, 24px, 0.05em);
     }
     #pic-wrapper {
-        margin-top: 5.48vh;
+        margin-top: 53px;
     }
     .yellow-btn {
-        margin-bottom: 5.77vh;
-        background: radial-gradient(50% 50% at 50% 50%, #FFC700 0%, #FFC700 100%);
-    }
-
-    @media(min-width: 992px) {
-        #wrapper {
-            width: 70%;
-            margin: 0 auto;
-        }
-    }
-    @media(min-width: 1400px) {
-        #wrapper {
-            width: 60%;
-        }
+        @extend %yellow-button;
     }
 </style>

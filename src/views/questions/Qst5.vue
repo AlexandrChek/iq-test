@@ -1,12 +1,11 @@
 <template>
     <ProgressBar progress="35.77%"/>
-    <QstParagraph id="question">{{ question }}</QstParagraph>
+    <p id="question">{{ question }}</p>
     <ColoredAnswer :answers="answers" @ansSelected="transmitAns"/>
 </template>
 
 <script>
 import ProgressBar from '@/components/ProgressBar.vue'
-import QstParagraph from '@/components/QstParagraph.vue'
 import ColoredAnswer from '@/components/ColoredAnswer.vue'
 
 
@@ -14,12 +13,11 @@ export default {
     name: 'Qst5',
     components: {
         ProgressBar,
-        QstParagraph,
         ColoredAnswer
     },
     data() {
         return {
-            question: 'Выберите цвет, который сейчас наиболее Вам приятен:',
+            question: 'Choose the color that is the most pleasant to you now:',
             answers: ['#A8A8A8', '#0000A9', '#00A701', '#F60100', '#FDFF19', '#A95403', '#000000', '#850068', '#46B3AC']
         }
     },
@@ -32,26 +30,24 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '@/scss/extends';
+
     #question {
-        margin: 4.33vh 0 3.32vh 0;
-        padding: 0 10.59%;
+        margin: 6.4vh 0;
+        padding: 0 9.58%;
+        @extend %question;
+        @extend %qst-with-square-ans;
     }
 
     @media(min-width: 576px) and (orientation: landscape) {
         #question {
-            margin: 30px 0;
+            margin: 38px 0;
         }
     }
     @media(min-width: 768px) {
         #question {
-            margin: 5vh 0 4.3vh 0;
-        }
-    }
-
-    @media(max-height: 690px) and (max-width: 575px) {
-        #question {
-            margin: 2.5vh 0 2vh 0;
+            margin: 6.4vh 0;
         }
     }
 </style>
