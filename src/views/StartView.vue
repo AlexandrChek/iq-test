@@ -36,7 +36,6 @@ export default {
   },
   methods: {
     startTest() {
-      this.$store.commit('showTestHead')
       this.$router.push('/test/1')
     }
   }

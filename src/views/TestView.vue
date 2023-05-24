@@ -54,6 +54,7 @@ export default {
         let newId = Number(this.$route.params.id) + 1
         this.$router.push(`/test/${newId}`)
       } else {
+        sessionStorage.setItem('answers', JSON.stringify(this.savedAnswers))
         this.$router.push('/processing')
       }
     }
