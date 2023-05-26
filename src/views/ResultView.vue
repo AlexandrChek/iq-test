@@ -9,9 +9,7 @@
         <img src="../assets/lightning_3.png" id="lightning-3" alt="Lightning">
         <img src="../assets/lightning_4.png" id="lightning-4" alt="Lightning">
         <button class="call-btn" @click="getResult">Get your result !</button>
-        <p v-for="item in response" :key="item" v-if="response.length" class="response">
-            {{ item.key }}: {{ item.value }}<br/>
-        </p>
+        <p v-if="response.length" class="response">{{ response }}</p>
     </StarsWrapper>
 </template>
 
@@ -25,7 +23,7 @@ export default {
         return {
             timer: '10:00',
             timeLeft: 600,
-            response: []
+            response: ''
         }
     },
     mounted() {
@@ -58,24 +56,16 @@ export default {
             }, 1000)
         },
         getResult() {
-            fetch('https://swapi.dev/api/people/1/')
-            .then(response => response.json())
+            fetch('https://iq-test-handler.glitch.me', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: sessionStorage.getItem('answers')
+            })
+            .then(response => response.text())
             .then(result => {
-                Object.entries(result).forEach(([key, value]) => {
-                    if(value.length) {
-                        let param = {}
-                        if(typeof(value) == "object") {
-                            let valueStr = value.join(', ')
-                            param = {"key": key, "value": valueStr}
-                            this.response.push(param)
-                        } else {
-                            param = {"key": key, "value": value}
-                            this.response.push(param)
-                        }
-                    }
-                })
-                const wrapper = document.querySelector('.results-wrapper')
-                wrapper.style.height = 'auto'
+                this.response = result
             })
             document.querySelector('.call-btn').disabled = true
         }
@@ -129,14 +119,12 @@ $height-992: calc(100vh - $head-height-992-vh - $heading-distance);
     }
     .call-btn {
         position: relative;
-        z-index: 2;
         background: #EB1B00;
         border-radius: 10px;
         width: 274px;
         height: 10.77vh;
         box-shadow: inset 4px 4px 5px rgba(0, 0, 0, 0.25);
         border: none;
-        margin-bottom: 10px;
         @include text('Roboto', 900, 30px, 31px, 0.05em);
         color: $main-text-col;
         cursor: pointer;
@@ -151,8 +139,12 @@ $height-992: calc(100vh - $head-height-992-vh - $heading-distance);
     .response {
         color: $indicators;
         margin: 0;
-        @include text('PT Serif', 400, 15px, 17px, normal);
-        word-spacing: 7px;
+        padding: 17px 12px;
+        @include text('PT Serif', 700, 17px, 19px, normal);
+        word-spacing: 5px;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.35);
+        
     }
 
     @media(min-width: 576px) and (orientation: landscape) {
