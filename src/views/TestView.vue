@@ -65,12 +65,14 @@ export default {
 <style scoped lang="scss">
 @import '../scss/variables';
 @import '../scss/extends';
-$height: calc(100vh - $head-height-vh - 2.87vh);
-$height-992: calc(100vh - $head-height-992-vh - 2.87vh);
+
+$heading-distance: 2.87vh;
+$height: calc(100vh - $head-height-vh - $heading-distance);
+$height-992: calc(100vh - $head-height-992-vh - $heading-distance);
 
   .test {
     height: $height;
-    padding-top: calc($head-height-vh + 2.87vh);
+    padding-top: calc($head-height-vh + $heading-distance);
     position: relative;
     z-index: 0;
     @media(min-width: 576px) and (orientation: landscape) {
@@ -79,11 +81,11 @@ $height-992: calc(100vh - $head-height-992-vh - 2.87vh);
     }
     @media(min-width: 768px) {
       height: $height;
-      padding-top: calc($head-height-vh + 2.87vh);
+      padding-top: calc($head-height-vh + $heading-distance);
     }
     @media(min-width: 992px) {
       height: $height-992;
-      padding-top: calc($head-height-992-vh + 2.87vh);
+      padding-top: calc($head-height-992-vh + $heading-distance);
     }
   }
   #next-btn {

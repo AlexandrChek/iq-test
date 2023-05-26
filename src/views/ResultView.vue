@@ -122,7 +122,7 @@ $height-992: calc(100vh - $head-height-992-vh - $heading-distance);
         background: #EB1B00;
         border-radius: 10px;
         width: 274px;
-        height: 10.77vh;
+        height: 64px;
         box-shadow: inset 4px 4px 5px rgba(0, 0, 0, 0.25);
         border: none;
         @include text('Roboto', 900, 30px, 31px, 0.05em);
@@ -138,8 +138,10 @@ $height-992: calc(100vh - $head-height-992-vh - $heading-distance);
     }
     .response {
         color: $indicators;
-        margin: 0;
-        padding: 17px 12px;
+        margin: 0 auto;
+        padding: 17px 0;
+        width: 92%;
+        max-width: 575px;
         @include text('PT Serif', 700, 17px, 19px, normal);
         word-spacing: 5px;
         position: absolute;
@@ -183,6 +185,9 @@ $height-992: calc(100vh - $head-height-992-vh - $heading-distance);
         }
         #lightning-4 {
             width: 18.5%;
+        }
+        .response {
+            padding: 30px 0;
         }
     }
     @media(min-width: 992px) {
