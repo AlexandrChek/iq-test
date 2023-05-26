@@ -138,20 +138,20 @@ $height-992: calc(100vh - $head-height-992-vh - $heading-distance);
     }
     .response {
         color: $indicators;
-        margin: 0 auto;
+        margin: 0;
         padding: 17px 0;
         width: 92%;
-        max-width: 575px;
         @include text('PT Serif', 700, 17px, 19px, normal);
         word-spacing: 5px;
         position: absolute;
+        left: 4%;
         background-color: rgba(0, 0, 0, 0.35);
         
     }
 
     @media(min-width: 576px) and (orientation: landscape) {
         .results-wrapper {
-            height: 518px;
+            height: 480px;
             padding-top: calc($head-height + 30px);
         }
         .get-result {
@@ -187,13 +187,19 @@ $height-992: calc(100vh - $head-height-992-vh - $heading-distance);
             width: 18.5%;
         }
         .response {
-            padding: 30px 0;
+            padding: 6.23vh 0;
+            width: 82%;
+            left: 9%;
         }
     }
     @media(min-width: 992px) {
         .results-wrapper {
             height: $height-992;
             padding-top: calc($head-height-992-vh + $heading-distance);
+        }
+        .response {
+            width: 78%;
+            left: 11%;
         }
     }
 </style>
