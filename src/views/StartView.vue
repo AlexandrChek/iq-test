@@ -28,13 +28,19 @@ export default {
     MyButton,
     RoundArrow
   },
+  mounted() {
+    this.scrollToLegend()
+  },
   updated() {
-    if(this.$route.hash === '#legend') {
-      const legend = document.querySelector('#legend')
-      legend.scrollIntoView()
-    }
+    this.scrollToLegend()
   },
   methods: {
+    scrollToLegend() {
+      if(this.$route.hash === '#legend') {
+        const legend = document.querySelector('#legend')
+        legend.scrollIntoView()
+      }
+    },
     startTest() {
       this.$router.push('/test/1')
     }
@@ -83,13 +89,13 @@ export default {
 
   @media(min-width: 768px) {
     .yellow-btn {
-      margin: 16px 0 30px 0;
+      margin: 42px 0 35px 0;
     }
     #legend {
       @include text('PT Serif', 400, 11px, 13px, 0.05em);
     }
     .home {
-      padding: calc($head-height-992 + 27px) 0 27px 0;
+      padding: calc($head-height-992 + 35px) 0 35px 0;
     }
   }
 </style>
