@@ -8,8 +8,8 @@
         </p>
         <img src="../assets/lightning_3.png" id="lightning-3" alt="Lightning">
         <img src="../assets/lightning_4.png" id="lightning-4" alt="Lightning">
-        <button class="call-btn" @click="getResult">Get your result !</button>
-        <p v-if="response.length" class="response">{{ response }}</p>
+        <button class="call-btn" @click="showResult">Get your result !</button>
+        <p v-if="btnPressed" class="response">{{ response }}</p>
     </StarsWrapper>
 </template>
 
@@ -23,22 +23,13 @@ export default {
         return {
             timer: '10:00',
             timeLeft: 600,
-            response: ''
+            response: '',
+            btnPressed: false
         }
     },
     mounted() {
+        this.response = this.$route.query.result
         this.countdown()
-    },
-    watch: {
-        timeLeft(val) {
-            if(val < 0) {
-                document.querySelector('.call-btn').disabled = true
-            }
-        }
-    },
-    beforeRouteLeave(to, from, next) {
-        clearInterval(this.myTimer)
-        next()
     },
     methods: {
         countdown() {
@@ -50,24 +41,16 @@ export default {
                 }
                 this.timer = minutes + ':' + seconds
                 this.timeLeft--
-                if(this.timeLeft < 0 || this.response.length) {
+                if(this.timeLeft < 0 || this.btnPressed) {
+                    clearInterval(myTimer)
+                    document.querySelector('.call-btn').disabled = true
+                } else if(this.$route.query.result !== this.response) {
                     clearInterval(myTimer)
                 }
             }, 1000)
         },
-        getResult() {
-            fetch('https://iq-test-handler.glitch.me', {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: sessionStorage.getItem('answers')
-            })
-            .then(response => response.text())
-            .then(result => {
-                this.response = result
-            })
-            document.querySelector('.call-btn').disabled = true
+        showResult() {
+            this.btnPressed = true
         }
     }
 }

@@ -26,12 +26,23 @@ export default {
         CircularAnimation
     },
     mounted() {
-        setTimeout(this.goToRes, 7000)
+        this.getResult()
     },
     methods: {
-        goToRes() {
-            this.$router.push('/result')
-        }  
+        getResult() {
+            fetch('https://iq-test-handler.glitch.me', {
+                method: 'POST',
+                headers: {"Content-Type": "application/json"},
+                body: this.$route.query.answers
+            })
+            .then(response => response.text())
+            .then(response => {
+                this.$router.push({
+                    path: '/result',
+                    query: {result: response}
+                })
+            })
+        }
     }
 }
 </script>

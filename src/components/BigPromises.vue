@@ -45,6 +45,9 @@ export default {
     #main-wrapper {
         padding-bottom: 13px;
         position: relative;
+        @media(min-width: 1400px) {
+            padding-bottom: 63px;
+        }
     }
     #promise-1 {
         @include text('Merriweather', 400, 15px, 20px, 0.05em);

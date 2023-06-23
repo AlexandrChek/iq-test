@@ -89,13 +89,13 @@ export default {
 
   @media(min-width: 768px) {
     .yellow-btn {
-      margin: 42px 0 35px 0;
+      margin: 42px 0;
     }
     #legend {
       @include text('PT Serif', 400, 11px, 13px, 0.05em);
     }
     .home {
-      padding: calc($head-height-992 + 35px) 0 35px 0;
+      padding: calc($head-height-992 + 50px) 0 70px 0;
     }
   }
 </style>
