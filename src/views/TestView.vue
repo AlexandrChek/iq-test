@@ -40,15 +40,16 @@ export default {
     },
     goToNext() {
       if(this.savedAnswers.length) {
+        let n = 0
         this.savedAnswers.forEach((ans, i) => {
-          if(Object.keys(ans)[0] === this.selectedAnswer) {
+          if(Object.keys(ans)[0] === Object.keys(this.selectedAnswer)[0]) {
             this.savedAnswers[i] = this.selectedAnswer
+            n++
             return
           }
         })
-      }
-
-      this.savedAnswers.push(this.selectedAnswer)
+        if(!n) {this.savedAnswers.push(this.selectedAnswer)}
+      } else {this.savedAnswers.push(this.selectedAnswer)}
 
       if(Number(this.$route.params.id) < 11) {
         let newId = Number(this.$route.params.id) + 1

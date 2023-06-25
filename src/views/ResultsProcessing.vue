@@ -25,8 +25,13 @@ export default {
         StarsWrapper,
         CircularAnimation
     },
+    beforeRouteLeave(to, from, next) {
+        if(to.path.startsWith('/test/')) {
+            next(false)
+        } else {next()}
+    },
     mounted() {
-        this.getResult()
+        setTimeout(this.getResult, 2000)
     },
     methods: {
         getResult() {
