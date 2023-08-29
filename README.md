@@ -1,6 +1,14 @@
-# iq_test
+# ![IQT] (/dist/favicons/favicon.ico) IQ Test
 
-## Project setup
+## Description
+
+### **It is an adaptive SPA, laid out according to Figma-layout, with front-end and back-end. Back-end is based on Node.js and placed on Glitch.com.**
+
+***
+
+<br/>
+
+### Project setup
 ```
 npm install
 ```
@@ -13,7 +21,3 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
