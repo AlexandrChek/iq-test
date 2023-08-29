@@ -1,4 +1,4 @@
-# ![IQT] (/dist/favicons/favicon.ico) IQ Test
+# ![Brain](/dist/favicons/favicon.ico) IQ Test
 
 ## Description
 
