@@ -2,7 +2,7 @@
 
 ## Description
 
-### **It is an adaptive SPA, laid out according to Figma-layout, with front-end and back-end. Back-end is based on Node.js and placed on Glitch.com.**
+### **It is a responsive SPA, laid out according to Figma-layout, with front-end and back-end. Back-end is based on Node.js and placed on Glitch.com.**
 
 ***
 
