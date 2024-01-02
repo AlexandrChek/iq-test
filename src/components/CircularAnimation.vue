@@ -13,22 +13,25 @@ export default {
 <style scoped lang="scss">
 @import '../scss/variables';
 
+    @mixin animations($a-name) {
+        -webkit-animation: $a-name 2s linear infinite;
+        animation: $a-name 2s linear infinite;
+    }
+
     .circle-wrapper {
         position: relative;
         top: 0;
         left: 50%;
         transform-origin: 0 31px;
-        -webkit-animation: rotating 2s linear infinite;
-        animation: rotating 2s linear infinite;
+        @include animations(rotating);
     }
     .circle {
         position: absolute;
-        width: 15px;
-        height: 15px;
+        width: 3px;
+        height: 3px;
         border-radius: 50%;
         background: $indicators;
-        -webkit-animation: scaling 2s linear infinite;
-        animation: scaling 2s linear infinite;
+        @include animations(scaling);
     }
 
     @for $i from 0 through 10 {
@@ -46,12 +49,13 @@ export default {
     0% {transform: rotate(360deg);}
     100% {transform: rotate(0deg);}
    }
+
    @-webkit-keyframes scaling {
-    0% {transform: scale(0);}
-    100% {transform: scale(1);}
+    0% {transform: scale(1);}
+    100% {transform: scale(5);}
    }
    @keyframes scaling {
-    0% {transform: scale(0);}
-    100% {transform: scale(1);}
+    0% {transform: scale(1);}
+    100% {transform: scale(5);}
    }
 </style>

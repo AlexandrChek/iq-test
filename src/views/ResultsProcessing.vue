@@ -31,7 +31,7 @@ export default {
         } else {next()}
     },
     mounted() {
-        setTimeout(this.getResult, 2000)
+        this.getResult()
     },
     methods: {
         getResult() {
@@ -91,7 +91,7 @@ $height-992: calc(100vh - $head-height-992-vh - $heading-distance);
             padding-top: calc($head-height + 17px);
         }
         pre {
-            margin: 49px 0 40 0;
+            margin: 49px 0 40px 0;
         }
         #inscription {
             margin: 151px auto 0 auto;
