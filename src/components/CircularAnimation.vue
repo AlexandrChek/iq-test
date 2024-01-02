@@ -1,5 +1,5 @@
 <template>
-    <div class="circle-wrapper" v-for="item in 11" :id="`wrapper-${item}`">
+    <div class="circle-wrapper" v-for="item in 11" :key="item" :id="`wrapper-${item}`">
         <div class="circle" :id="`circle-${item}`"></div>
     </div>
 </template>
