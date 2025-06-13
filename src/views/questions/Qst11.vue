@@ -22,6 +22,7 @@ export default {
             answers: ['34', '36', '53', '44', '66', '42']
         }
     },
+    emits: ['ansTransmited'],
     methods: {
         transmitAns(ans) {
             let ansObj = {suitableNumber: ans}

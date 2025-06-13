@@ -26,6 +26,7 @@ export default {
             answers: ['House', 'Hovel', 'Bungalow', 'Bench', 'Hut']
         }
     },
+    emits: ['ansTransmited'],
     methods: {
         transmitAns(ans) {
             let ansObj = {selectedExcess: ans}

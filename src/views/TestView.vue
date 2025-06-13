@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import {markRaw} from 'vue'
 import StarsWrapper from '../components/StarsWrapper.vue'
 import MyButton from '../components/MyButton.vue'
 
@@ -15,7 +16,7 @@ export default {
     return {
       currentQuestion: null,
       selectedAnswer: null,
-      savedAnswers: []
+      savedAnswers: {}
     }
   },
   components: {
@@ -31,27 +32,15 @@ export default {
   methods: {
     loadQuestion() {
       import(`./questions/Qst${this.$route.params.id}.vue`)
-      .then(component => this.currentQuestion = component.default)
+      .then(component => this.currentQuestion = markRaw(component.default))
       document.querySelector('#next-btn').disabled = true
     },
     saveAns(ans) {
-      this.selectedAnswer = ans
+      this.savedAnswers = {...this.savedAnswers, ...ans}
       document.querySelector('#next-btn').disabled = false
     },
     goToNext() {
-      if(this.savedAnswers.length) {
-        let n = 0
-        this.savedAnswers.forEach((ans, i) => {
-          if(Object.keys(ans)[0] === Object.keys(this.selectedAnswer)[0]) {
-            this.savedAnswers[i] = this.selectedAnswer
-            n++
-            return
-          }
-        })
-        if(!n) {this.savedAnswers.push(this.selectedAnswer)}
-      } else {this.savedAnswers.push(this.selectedAnswer)}
-
-      if(Number(this.$route.params.id) < 11) {
+      if (Number(this.$route.params.id) < 11) {
         let newId = Number(this.$route.params.id) + 1
         this.$router.push(`/test/${newId}`)
       } else {

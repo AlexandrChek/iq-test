@@ -26,6 +26,7 @@ export default {
             answers: ['Washington', 'London', 'Paris', 'New-York', 'Sofia', 'Ottawa']
         }
     },
+    emits: ['ansTransmited'],
     methods: {
         transmitAns(ans) {
             let ansObj = {excessCity: ans}

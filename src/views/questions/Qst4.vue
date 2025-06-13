@@ -26,6 +26,7 @@ export default {
             answers: ['62', '48', '74', '57', '60', '77']
         }
     },
+    emits: ['ansTransmited'],
     methods: {
         transmitAns(ans) {
             let ansObj = {numberLineExtention: ans}

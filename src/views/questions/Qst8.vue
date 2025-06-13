@@ -22,6 +22,7 @@ export default {
             answers: ['1', '2', '3', '4']
         }
     },
+    emits: ['ansTransmited'],
     methods: {
         transmitAns(ans) {
             let ansObj = {dancingMan: ans}

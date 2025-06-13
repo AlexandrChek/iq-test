@@ -26,6 +26,7 @@ export default {
             answers: ['Under 18', 'From 18 to 27', 'From 28 to 37', 'From 38']
         }
     },
+    emits: ['ansTransmited'],
     methods: {
         transmitAns(ans) {
             let ansObj = {age: ans}

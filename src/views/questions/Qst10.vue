@@ -27,6 +27,7 @@ export default {
             answers: ['It is pointed', 'It is sustainable', 'It is in equilibrium']
         }
     },
+    emits: ['ansTransmited'],
     methods: {
         transmitAns(ans) {
             let ansObj = {piramidFeature: ans}

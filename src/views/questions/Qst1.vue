@@ -26,6 +26,7 @@ export default {
             answers: ['Man', 'Woman']
         }
     },
+    emits: ['ansTransmited'],
     methods: {
         transmitAns(ans) {
             let ansObj = {gender: ans}

@@ -30,6 +30,7 @@ export default {
             ]
         }
     },
+    emits: ['ansTransmited'],
     methods: {
         transmitAns(ans) {
             let ansObj = {lifestyle: ans}

@@ -21,6 +21,7 @@ export default {
             answers: ['#A8A8A8', '#46B3AC', '#A95403', '#00A701', '#000000', '#F60100', '#850068', '#FDFF19', '#0000A9']
         }
     },
+    emits: ['ansTransmited'],
     methods: {
         transmitAns(ans) {
             let ansObj = {selectedColor2: ans}
