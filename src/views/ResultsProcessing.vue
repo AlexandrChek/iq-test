@@ -35,7 +35,7 @@ export default {
     },
     methods: {
         getResult() {
-            fetch('https://iq-test-handler.glitch.me', {
+            fetch('https://iq-test-handler.vercel.app', {
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
                 body: this.$route.query.answers
